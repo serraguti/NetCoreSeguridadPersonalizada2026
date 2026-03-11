@@ -52,5 +52,12 @@ namespace NetCoreSeguridadPersonalizada.Controllers
                 return View();
             }
         }
+
+        public async Task<IActionResult> Logout() 
+        {
+            await HttpContext.SignOutAsync
+                (CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
